@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>SSAFY 회원가입</title>
+    <style>
+        #top{
+            border-bottom: 1px solid black;
+            font-size: 60px;
+            text-align: center;
+            font-style:italic;
+            color:lightsalmon;
+            padding-bottom: 45px;
+        }
+        #box{
+            margin: 30px 500px 30px 500px;
+            padding: 20px;
+        }
+        .text{
+            color: cornflowerblue
+        }
+        .bx{
+            position: absolute;
+            left:45%;
+        }
+        .tx{
+            padding-left: 160px;
+        }
+        .bt{
+            padding: 5px 10px 5px 10px;
+            margin-left: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="top">Become a Member</h1>    <!-- 상단 타이틀-->
+    </div>
+    <form method="post">
+    <div>
+        <fieldset id="box">
+        <legend class="text"><h3>Registration Information</h3></legend>
+        <ul>
+            <p class="tx">
+                <label for="email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-Mail : </label>
+                <input class="bx" type="text" id="email" name="email">
+            </p>
+            <p class="tx">
+                <label for="pass">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password : </label>
+                <input class="bx" type="password" id="pass" name="pass">
+            </p>
+            <p class="tx">
+                <label for="pass">Verify Password : </label>
+                <input class="bx" type="password" id="pass" name="pass">
+            </p>
+        </ul>
+        </fieldset>
+    </div>
+    <div>
+        <fieldset id="box">
+        <legend class="text"><h3>Member Information</h3></legend>
+        <ul>
+            <p class="tx">
+                <label for="firstname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name : </label>
+                <input class="bx" type="text" name="firstname">
+            </p>
+            <p class="tx">
+                <label for="lastname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name : </label>
+                <input class="bx" type="text" name="lastname">
+            </p>
+            <p class="tx">
+                <label for="add">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address : </label>
+                <input class="bx" type="text" name="add">
+            </p>
+            <p class="tx">
+                <label for="city">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City : </label>
+                <input class="bx" type="text" name="city">
+            </p>
+            <p class="tx">
+                <label for="state">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;State : </label>
+                <input class="bx" type="text" name="state">
+            </p>
+            <p class="tx">
+                <label for="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zip Code : </label>
+                <input class="bx" type="text" name="code">
+            </p>
+            <p class="tx">
+                <label for="phone">Phone Number : </label>
+                <input class="bx" type="text" name="phone">
+            </p>
+        </ul>
+        </fieldset>
+    </div>
+    <div>
+        <fieldset id="box">
+            <legend class="text"><h3>Membership Information</h3></legend>
+            <ul>
+                <p class="tx">
+                    <label>Membership Type : </label>
+                    <select style="padding: 5px 30px 5px 30px;" name="mb">
+                        <option value="junior">Junior
+                        <option value="senior">Senior
+                        <option value="Master">Master
+                    </select>
+                </p>
+                <p>
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Starting Date : </label>
+                    <input class="bx" type="number" name="number" min="1" max"31" value="1">
+                </p>
+                <p>
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tickets for Guests : </label>
+                    <input class="bx" type="number" name="number" min="1" max"10" value="1">
+                </p>
+            </ul>
+        </fieldset>
+    </div>
+    <div>
+        <fieldset id="box">
+            <legend class="text"><h3>Submit Your Membership</h3></legend>
+            <input class="bt" type="submit" value="Submit">
+            <input style="padding: 5px 10px 5px 10px; margin-bottom:25px;" type="reset" value="Reset Fields">
+        </fieldset>
+    </div>
+</form>
+<div style="border-bottom: 1px solid black; margin-top:70px; margin-bottom: 200px;"></div>
+</body>
