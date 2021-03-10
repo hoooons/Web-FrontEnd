@@ -1,0 +1,22 @@
+.top1{
+    overflow: hidden;
+}
+
+.top2{
+    background-color: lightblue;
+    height:150px;
+    line-height:150px;
+    font-weight:bold;
+    font-size:50px;
+}
+
+.top3{
+    margin-top:50px;
+    font-size:40px;
+}
+
+.content{
+    border:1px solid black;
+    border-radius:30px;
+    height:950px;
+}

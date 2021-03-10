@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="HW06.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>HW06</title>
+</head>
+<body>
+    <!-- 로그인 창 -->
+    <div class="top1 container mt-3 mb-1" style="overflow: hidden;">
+        <a class="text-danger float-right mr-2" href="HW05_signup.html" id="topsignup">SignUp</a>
+        <a class="text-danger float-right mr-2" data-toggle="modal" data-target="#myModal" id="toplogin" >Login</a>
+        <a class="text-danger float-right mr-2" href="" style="display:none" id="toplogout">LogOut</a>
+        <a class="text-danger float-right mr-2" href="" id="topid" style="display:none"></a>
+    </div>
+    <!-- 메인 화면 -->
+    <div class="top2 container text-center">
+        <a href="HW06_1.html" style="color:black">SSAFY 게시판</a>
+    </div>
+    <!-- 네비게이터-->
+    <div class="container mt-2 pl-0 pr-0">
+        <button type="button" class="btn btn-primary" onclick="location.href = 'HW06_2.html'">글쓰기</button>
+        <div class="float-right">
+            <form class="form-inline" action="/action_page.php">
+                <select class="form-control mb-2 mr-sm-2" id="sel1" name="sellist1">
+                    <option>아이디</option>
+                    <option>제목</option>
+                  </select>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="search" placeholder="검색어 입력." name="search">
+                <button type="button" class="btn btn-secondary mb-2">검색</button>
+            </form>
+        </div>
+    </div>
+    <!-- 게시판 -->
+    <div class="container pl-0 pr-0">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+                <th>작성일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="read1n">01</td>
+                <td><a id="read1" href="HW06_3.html" style="color:black">안녕하세요 새로 가입했어요</a></td>
+                <td>황지훈</td>
+                <td>871</td>
+                <td>03-01</td>
+              </tr>
+              <tr>
+                <td id="read2n">02</td>
+                <td><a href="" id="read2" style="color:black">반가워요~~~~~~</a></td>
+                <td>김싸피</td>
+                <td>146</td>
+                <td>03-03</td>
+              </tr>
+              <tr>
+                <td id="read3n">03</td>
+                <td><a href="" id="read3" style="color:black">ㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇㅎㅇ</a></td>
+                <td>이싸피</td>
+                <td>299</td>
+                <td>03-08</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <!-- 페이지관리-->
+    <div class="container pl-0 pr-0">
+        <ul class="pagination" style="width:280px; margin:0 auto;">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+    </div>
+    <!--  로그인 모달창 -->
+       </div>
+	  <div class="modal fade" id="myModal">
+   		 <div class="modal-dialog">
+     	 <div class="modal-content">
+      
+      	  <!-- Modal Header -->
+       	 <div class="modal-header">
+          <h4 class="modal-title">Login</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="form-group">
+                <label for="loginid">User ID (* 20자 이내)</label>
+                <input type="text" class="form-control" placeholder="ID" id="loginid" name="loginid" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        	<button type="button" class="loginbt btn btn-primary">Login</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 자바스크립트 -->
+    <script>
+        $('#read1').click(function(){
+          alert(`선택하신 게시글은 ${$('#read1n').text()}번글입니다.`);
+        });
+        $('#read2').click(function(){
+          alert(`선택하신 게시글은 ${$('#read2n').text()}번글입니다.`);
+        });
+        $('#read3').click(function(){
+          alert(`선택하신 게시글은 ${$('#read3n').text()}번글입니다.`);
+        });
+
+        $('.loginbt').click(function(){
+    	    $.ajax({
+            url: 'userlistxml.jsp',
+            type: 'GET',
+            dataType: 'xml',
+            success: function(response){
+                loginList(response);
+            },
+            error: function(xhr, status, msg){
+                console.log('오류');
+            }
+        });
+    });
+    
+    function loginList(data){
+    	let cnt = 0;
+    	$(data).find('item').each(function(index, item){
+    		console.log(cnt);
+	    	if($('#loginid').val().length!=0){
+	    		if($('#loginid').val()==$(this).find('id').text()){
+	    			alert('로그인 성공 !');
+	    			$('#toplogout').css('display','block');
+	    			$('#topid').css('display','block').text($('#loginid').val());
+	    			$('#toplogin').css('display','none');
+	    			$('#topsignup').css('display','none');
+	    			cnt--;
+	    		}
+	    		if(cnt==3){
+	    			cnt=0;
+	    			alert('등록되지않은 id입니다.');
+	    		}
+	    	}
+	    	else if($('#loginid').val().length==0){
+	    		aler('입력창을 확인하세요');
+	    	}
+	    	cnt++;
+    	});
+    	
+    };
+    
+    $('#toplogout').click(function(){
+    	$('#toplogout').css('display','none');
+		$('#topid').css('display','none').text($('#loginid').val());
+		$('#toplogin').css('display','block');
+		$('#topsignup').css('display','block');
+    });
+
+    </script>
+</body>
+</html>
