@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>List</title>
+
+    <style>
+        th{
+            background-color: skyblue;
+            color:white;
+        }
+
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align:center;">사원 목록</h1>
+    <div id="app" style="text-align:center; margin:0 auto; width:1200px;">
+        <input v-model="search">
+        <button @click="searchs" type="button">검색</button>
+        <br><a href="insert.html" style="margin-top:30px; display:block;">사원등록</a>
+        <table style="width:100%; margin-top:30px;">
+            <colgroup>
+                <col width="20%" />
+                <col width="20%" />
+                <col width="20%" />
+                <col width="20%" />
+                <col width="20%" />
+              </colgroup>
+            <tr>
+                <th>사원 아이디</th>
+                <th>사원명</th>
+                <th>부서</th>
+                <th>직책</th>
+                <th>연봉</th>
+            </tr>
+            
+            <tr v-for="(item,index) in arr" >
+                <td>{{index+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.depart}}</td>
+                <td>{{item.tier}}</td>
+                <td>{{item.salary}}</td>
+            </tr>
+           
+        </table>
+    </div>
+    <script>
+        const arr = [];
+
+        for(let i=0;i<localStorage.length;i++){
+            let key = localStorage.key(i);
+            arr.push(JSON.parse(localStorage.getItem(key)));
+        }
+
+        console.log(arr);
+
+        new Vue({
+            el:'#app',
+            data:{
+                search:"",
+                arr:arr,
+                see:false,
+            },
+            // 검색해서 콘솔창에 출력하는것은 구현 
+            // 테이블에 해당부분만 출력하는 부분을 해결못함.
+            methods:{
+                searchs: function(){
+                    this.arr.forEach(item => {
+                        if(item.name.search(this.search)!=-1){
+                            console.log(item.name);
+                        }
+                    });
+                },
+            },
+        })
+    </script>
+  </body>
+</html>
